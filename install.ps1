@@ -18,6 +18,7 @@ $Shortcut = $WshShell.CreateShortcut("$Home\Desktop\Terminator.lnk")
 $Shortcut.TargetPath =  "C:\Windows\System32\wscript.exe"
 $Shortcut.Arguments = "$PSScriptRoot\system\StartTerminator.vbs"
 $Shortcut.IconLocation = "$PSScriptRoot\icon\terminator.ico"
+$Shortcut.WorkingDirectory = "%USERPROFILE%"
 $Shortcut.Save()
 
 Write-Output "Creating startup job to run x-server"
