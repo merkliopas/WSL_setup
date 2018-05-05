@@ -2,24 +2,23 @@
 #based on this guide: https://gnometerminator.blogspot.lt/2015/09/so-you-want-to-try-terminator-gtk3.html
 set -e
 
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get install gcc make build-essential gfortran texinfo
-#sudo apt-get install software-properties-common
-#sudo add-apt-repository ppa:deadsnakes/ppa
-#sudo apt-get update
-#sudo apt-get install python3.6
-sudo ln -s /usr/bin/python2.7 /usr/bin/python
-sudo apt-get install python-pip
-pip install psutil
-sudo apt-get install libgtk-3-dev
-sudo apt-get install gir1.2-gconf-2.0
-sudo apt-get install gir1.2-keybinder-3.0
-sudo apt-get install intltool
-sudo apt-get install gobject-introspection
-sudo apt-get install libgirepository1.0-dev
-sudo apt-get install valac
-sudo apt-get install libxml2-utils
+#system dependencies
+sudo apt-get -y update
+sudo apt-get -y upgrade
+sudo apt-get -y install gcc make build-essential libtool automake pkg-config cmake
+sudo apt-get -y install software-properties-common
+sudo apt-get -y install python3-pip python3-dev
+
+#terminator gtk3 dependencies
+pip3 install psutil
+sudo apt-get -y install libgtk-3-dev
+sudo apt-get -y install gir1.2-gconf-2.0
+sudo apt-get -y install gir1.2-keybinder-3.0
+sudo apt-get -y install intltool
+sudo apt-get -y install gobject-introspection
+sudo apt-get -y install libgirepository1.0-dev
+sudo apt-get -y install valac
+sudo apt-get -y install libxml2-utils
 
 mkdir -p ~/Development/vte
 cd ~/Development/vte
@@ -30,9 +29,10 @@ cd vte-0.38.0
 cd ../
 rm -rf ~/Development
 
-sudo add-apt-repository ppa:gnome-terminator/nightly-gtk3
-sudo apt-get update
-sudo apt-get install terminator
+#terminator itself
+sudo add-apt-repository -y ppa:gnome-terminator/nightly-gtk3
+sudo apt-get -y update
+sudo apt-get -y install terminator
 
 
 
